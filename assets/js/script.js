@@ -12,7 +12,7 @@ function createTaskCard(task) {
         //Create a new card element and add the classes `card`, `project-card`, `draggable`, and `my-3`. Also add a `data-project-id` attribute and set it to the project id.
         const taskCard = $("<div>");
         taskCard.addClass("card, project-card draggable my-3");
-        taskCard.attr("data-project-id",project.id);
+        taskCard.attr("data-task-id",task.id);
 
         const cardHeader = $("<h4>");
         cardHeader.addClass("card-header h4");
@@ -46,6 +46,7 @@ function createTaskCard(task) {
           }
         }
 }
+createTaskCard();
 
 // Todo: create a function to render the task list and make cards draggable
 function renderTaskList() {
