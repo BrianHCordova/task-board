@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
     integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
   <link rel="stylesheet" href="./assets/css/style.css" />
   <title>Task Board</title>
@@ -34,25 +33,38 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
             <div class="modal-body">
-              <form>
-                <h2 class="mb-3">Add Task</h2>
-                <div class="mb-3">
-                  <label for="taskTitle" class="form-label">Task Title</label>
-                  <input type="text" class="form-control" id="taskTitle" required>
-                </div>
-                <div class="row mb-3">
-                  <div class="col">
-                    <label for="taskDueDate" class="form-label">Task Due Date</label>
-                    <input type="date" class="form-control" id="taskDueDate">
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="taskDescription" class="form-label">Task Description</label>
-                  <textarea class="form-control" id="taskDescription" rows="3"></textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-primary">Add Task</button>
+              <form id="task-form">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <input
+                      id="task-name-input"
+                      type="text"
+                      class="form-control"
+                      placeholder="Task Title"
+                      aria-label="Project Name"
+                    />
+                  </li>
+                  <input
+                      id="task-description-input"
+                      type="text"
+                      class="form-control"
+                      placeholder="Task Description"
+                      aria-label="Project Name"
+                    />
+                  <li class="list-group-item">
+                    <input
+                      placeholder="Task Due Date"
+                      autocomplete="off"
+                      type="date"
+                      class="form-control mb-3"
+                      id="taskDueDate"
+                    />
+                  </li>
+                </ul>
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-custom">
+                    Add Project
+                  </button>
                 </div>
               </form>
             </div>

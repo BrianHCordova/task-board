@@ -9,7 +9,42 @@ function generateTaskId() {
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
+        //Create a new card element and add the classes `card`, `project-card`, `draggable`, and `my-3`. Also add a `data-project-id` attribute and set it to the project id.
+        const taskCard = $("<div>");
+        taskCard.addClass("card, project-card draggable my-3");
+        taskCard.attr("data-project-id",project.id);
 
+        const cardHeader = $("<h4>");
+        cardHeader.addClass("card-header h4");
+        cardHeader.text(task.name);
+
+        const cardBody = $("<div>");
+        cardBody.addClass("card-body");
+
+        const cardTypePara = $("<p>");
+        cardTypePara.addClass("card-text");
+        cardTypePara.text(task.type);
+
+        const cardDuePara = $("<p>");
+        cardDuePara.addClass("card-text");
+        cardDuePara.text(task.dueDate);
+
+        const cardDeleteBtn = $("<button>");
+        cardDeleteBtn.addClass("btn btn-danger delete");
+        cardDeleteBtn.attr("data-project-id",task.id);
+        cardDeleteBtn.text("Delete");
+
+        if (project.dueDate && task.status !== "done") {
+          const now = dayjs();
+          const taskDueDate = dayjs(task.dueDate, "DD/MM/YYYY");
+      
+          if (now.isSame(taskDueDate, "day")) {
+            taskCard.addClass("bg-warning text-white");
+          } else if (now.isAfter(taskDueDate)) {
+            taskCard.addClass("bg-danger text-white");
+            cardDeleteBtn.addClass("border-light");
+          }
+        }
 }
 
 // Todo: create a function to render the task list and make cards draggable
